@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h1>{% block title %}新四麻{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label for="game_name">対局名</label>
+        <input name="game_name" id="game_name" value="テスト" required>
+        <fieldset>
+            <legend>持ち点</legend>
+            <label><input type="radio" name="initial_points" value="25000">25000</label>
+        </fieldset>
+        <fieldset>
+            <legend>返り点</legend>
+            <label><input type="radio" name="return_points" value="30000">30000</label>
+        </fieldset>
+        <fieldset>
+            <legend>レート</legend>
+            <label><input type="radio" name="score_to_money_conversion" value="0.1">テンイチ</label>
+        </fieldset>
+        <fieldset>
+            <legend>チップ枚数</legend>
+            <label><input type="radio" name="chips_count" value="20">20</label>
+        </fieldset>
+        <fieldset>
+            <legend>ウマ(4→1)</legend>
+            <label><input type="radio" name="uma_last_to_first" value="20">20</label>
+        </fieldset>
+        <fieldset>
+            <legend>ウマ(3→2)</legend>
+            <label><input type="radio" name="uma_third_to_second" value="10">10</label>
+        </fieldset>
+        <fieldset>
+            <legend>飛び賞</legend>
+            <label><input type="radio" name="tobi_penalty" value="0">0</label>
+        </fieldset>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

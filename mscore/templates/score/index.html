@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h1>{% block title %}ホーム{% endblock %}</h1>
+    <a class="action" href="{{ url_for('score.newgame_4p') }}">新四麻</a>
+    {#    <a class="action" href="{{ url_for('score.newgame-3p') }}">新三麻</a>#}
+{% endblock %}
+
+{% block content %}
+    {% for game in games %}
+        <div class="game">
+            <div class="game-header">
+                <a href="{{ url_for('score.game', game_id=game.game_id) }}">詳細</a>
+                <div class="game-id">ID: {{ game.game_id }}</div>
+                <div class="game-name">名前: {{ game.game_name }}</div>
+                <div class="player-count">人数: {{ game.player_count }}</div>
+                <div class="game-date">日付: {{ game.date }}</div>
+            </div>
+        </div>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
